@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerador de Itens v3</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Gerador de Itens v3</h1>
+      <p>Redes de Computadores • modo local e modo Gemini</p>
+    </div>
+    <div class="badge-group">
+      <span class="badge">Metodologia fixa</span>
+      <span class="badge">Ficha avaliativa</span>
+    </div>
+  </header>
+  <main class="layout">
+    <section class="panel form-panel">
+      <h2>Parâmetros do item</h2>
+      <form id="itemForm">
+        <div class="grid two">
+          <label>Modo<select id="modo"><option value="local">Local</option><option value="gemini">Gemini</option></select></label>
+          <label>ID da ficha<input id="fichaId" placeholder="Ex.: UC7-001" /></label>
+        </div>
+        <div class="grid two">
+          <label>Elaborador<input id="elaborador" placeholder="Seu nome" /></label>
+          <label>Unidade Curricular<select id="uc"></select></label>
+        </div>
+        <label>Competência<input id="competencia" readonly /></label>
+        <div class="grid two">
+          <label>Habilidade<select id="habilidade"></select></label>
+          <label>Conhecimento relacionado<select id="conhecimento"></select></label>
+        </div>
+        <div class="grid three">
+          <label>Bloom – Nível<select id="bloomNivel"><option>Aplicar</option><option>Analisar</option><option>Avaliar</option><option>Criar</option></select></label>
+          <label>Bloom – Processo<select id="bloomProcesso"><option>Executar</option><option>Diferenciar</option><option>Verificar</option><option>Produzir</option></select></label>
+          <label>Bloom – Conhecimento<select id="bloomConhecimento"><option>Procedimental</option><option>Conceitual</option><option>Factual</option><option>Metacognitivo</option></select></label>
+        </div>
+        <div class="grid three">
+          <label>Dificuldade<select id="dificuldade"><option>Fácil</option><option selected>Médio</option><option>Difícil</option></select></label>
+          <label>Tipo de conhecimento<select id="tipoConhecimento"><option>Procedimental</option><option>Conceitual</option><option>Normativo</option><option>Aplicado</option></select></label>
+          <label>Norma técnica<select id="normaTecnica"></select></label>
+        </div>
+        <label>Observações<textarea id="observacoes" rows="4" placeholder="Restrições, foco técnico, contexto desejado..."></textarea></label>
+        <div class="actions">
+          <button type="submit" class="primary">Gerar item</button>
+          <button type="button" id="limparBtn">Limpar</button>
+        </div>
+      </form>
+      <p id="status" class="status">Pronto para gerar.</p>
+    </section>
+    <section class="panel result-panel">
+      <div class="result-header">
+        <h2>Resultado</h2>
+        <div class="actions compact">
+          <button id="exportHtmlBtn" type="button">Exportar HTML</button>
+          <button id="exportTxtBtn" type="button">Exportar TXT</button>
+          <button id="exportJsonBtn" type="button">Exportar JSON</button>
+          <button id="printBtn" type="button">Imprimir / PDF</button>
+        </div>
+      </div>
+      <div id="resultado" class="resultado vazio">Nenhum item gerado ainda.</div>
+    </section>
+  </main>
+  <section class="panel history-panel">
+    <div class="result-header">
+      <h2>Histórico local</h2>
+      <button id="limparHistoricoBtn" type="button">Limpar histórico</button>
+    </div>
+    <div id="historico" class="historico"></div>
+  </section>
+  <script src="course-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

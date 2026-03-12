@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: gerador-itens-html-v3
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
